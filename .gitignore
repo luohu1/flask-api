@@ -1,0 +1,26 @@
+# build products...
+*.py[co]
+
+# PyCharm stuff...
+.idea/
+
+#IntelliJ IDEA stuff..
+*.iml
+
+#VSCode stuff..
+.vscode/
+
+# Mac OS X stuff...
+.DS_Store
+
+# Sublime stuff
+*.sublime-project
+*.sublime-workspace
+
+# Vim swap files
+*.swp
+*.swo
+
+# Custom directories and files
+venv/
+data/
