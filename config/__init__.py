@@ -1,23 +1,15 @@
-class Config:
-    DEBUG = True
-    SQLALCHEMY_TRACK_MODIFICATIONS = False
+import os
 
 
-class DevelopmentConfig(Config):
-    SQLALCHEMY_DATABASE_URI = 'sqlite:///data/sqlite.db'
+def load_config():
+    mode = os.environ.get('FLASK_ENV', 'default')
 
-
-class TestingConfig(Config):
-    pass
-
-
-class ProductionConfig(Config):
-    DEBUG = False
-
-
-config = {
-    'default': DevelopmentConfig,
-    'development': DevelopmentConfig,
-    'testing': TestingConfig,
-    'production': ProductionConfig
-}
+    if mode == 'production':
+        from config.production import ProductionConfig
+        return ProductionConfig
+    elif mode == 'development':
+        from config.development import DevelopmentConfig
+        return DevelopmentConfig
+    elif mode == 'default':
+        from config.development import DevelopmentConfig
+        return DevelopmentConfig
