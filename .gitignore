@@ -2,7 +2,7 @@
 *.py[co]
 
 # PyCharm stuff...
-.idea
+.idea/
 
 #IntelliJ IDEA stuff..
 *.iml
@@ -22,4 +22,5 @@
 *.swo
 
 # Custom directories and files
-venv
+venv/
+data/

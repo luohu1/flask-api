@@ -1,10 +1,14 @@
 from flask import Flask
 
-from apps.views import api
+from config import load_config
 
 
 def create_app():
     app = Flask(__name__)
-    api.init_app(app)
+    config = load_config()
+    app.config.from_object(config)
+
+    from apps.controller.api_v1 import api_v1
+    api_v1.init_app(app)
 
     return app
